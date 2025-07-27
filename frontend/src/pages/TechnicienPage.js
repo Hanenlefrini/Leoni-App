@@ -10,7 +10,7 @@ const TechnicienPage = () => {
 
   const fetchTechniciens = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/techniciens");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/techniciens`);
       setTechniciens(response.data);
     } catch (err) {
       console.error("Erreur de récupération des techniciens", err);
@@ -29,9 +29,9 @@ const TechnicienPage = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:3000/api/techniciens/${editingId}`, form);
+        await axios.put(`${process.env.REACT_APP_API_URL}/api/techniciens/${editingId}`, form);
       } else {
-        await axios.post("http://localhost:3000/api/techniciens", form);
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/techniciens`, form);
       }
       setForm({ nom: "", prenom: "", matricule: "" });
       setEditingId(null);
@@ -49,7 +49,7 @@ const TechnicienPage = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Confirmer la suppression ?")) return;
     try {
-      await axios.delete(`http://localhost:3000/api/techniciens/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/techniciens/${id}`);
       fetchTechniciens();
     } catch (err) {
       console.error("Erreur lors de la suppression", err);

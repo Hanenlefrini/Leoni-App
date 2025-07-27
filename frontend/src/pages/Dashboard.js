@@ -13,8 +13,8 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         const [anomaliesRes, techniciensRes] = await Promise.all([
-          axios.get("http://localhost:3000/api/anomalies"),
-          axios.get("http://localhost:3000/api/techniciens"),
+          axios.get(`${process.env.REACT_APP_API_URL}/api/anomalies`),
+          axios.get(`${process.env.REACT_APP_API_URL}/api/techniciens`),
         ]);
         setAnomalies(anomaliesRes.data);
         setTechniciens(techniciensRes.data);
@@ -41,7 +41,7 @@ function Dashboard() {
     if (!updateStatus[id]) return;
 
     try {
-      await axios.put(`http://localhost:3000/api/anomalies/${id}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/anomalies/${id}`, {
         technicienId: updateStatus[id].technicienId,
       });
       setAnomalies((prev) =>

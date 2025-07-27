@@ -15,7 +15,7 @@ function DashboardTechnicien() {
     const fetchAnomalies = async () => {
       try {
         // Récupérer uniquement anomalies assignées à ce technicien
-        const res = await axios.get(`http://localhost:3000/api/anomalies?technicienId=${technicienId}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/anomalies?technicienId=${technicienId}`);
         setAnomalies(res.data);
         setLoading(false);
       } catch (err) {
@@ -47,7 +47,7 @@ function DashboardTechnicien() {
 
     try {
       // Ici on ne permet que la mise à jour du statut
-      await axios.put(`http://localhost:3000/api/anomalies/${id}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/anomalies/${id}`, {
         status: updateStatus[id].status,
       });
 

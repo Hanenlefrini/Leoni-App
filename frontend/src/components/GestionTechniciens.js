@@ -16,7 +16,7 @@ function GestionTechniciens() {
 
   const fetchTechniciens = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/techniciens');
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/techniciens`);
       setTechniciens(res.data);
       setLoading(false);
     } catch {
@@ -46,7 +46,7 @@ function GestionTechniciens() {
   const handleDelete = async (id) => {
     if (!window.confirm('Confirmer la suppression ?')) return;
     try {
-      await axios.delete(`http://localhost:3000/api/techniciens/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/techniciens/${id}`);
       setTechniciens((prev) => prev.filter((t) => t.id !== id));
     } catch {
       setError('Erreur lors de la suppression');
@@ -68,11 +68,11 @@ function GestionTechniciens() {
     try {
       if (editId) {
         // Modifier
-        const res = await axios.put(`http://localhost:3000/api/techniciens/${editId}`, formData);
+        const res = await axios.put(`${process.env.REACT_APP_API_URL}/api/techniciens/${editId}`, formData);
         setTechniciens((prev) => prev.map((t) => (t.id === editId ? res.data : t)));
       } else {
         // Ajouter
-        const res = await axios.post('http://localhost:3000/api/techniciens', formData);
+        const res = await axios.post('${process.env.REACT_APP_API_URL}/api/techniciens', formData);
         setTechniciens((prev) => [...prev, res.data]);
       }
       setShowModal(false);
