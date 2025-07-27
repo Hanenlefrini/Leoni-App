@@ -9,6 +9,8 @@ RUN npm install
 
 COPY --chown=node:node . .
 
+RUN chown node:node /app
+
 USER node
 
 RUN npm run build
