@@ -1,5 +1,5 @@
 
-FROM node:alpine as builder
+FROM node:alpine AS builder
 
 WORKDIR /app
 
@@ -9,13 +9,13 @@ RUN npm install
 
 COPY --chown=node:node . .
 
-RUN chown node:node /app
+RUN chown -R node:node /app
 
 USER node
 
 RUN npm run build
 
-FROM nginx:alpine as stage
+FROM nginx:alpine AS stage
 
 COPY --from=builder /app/dist /usr/share/nginx/html
 
