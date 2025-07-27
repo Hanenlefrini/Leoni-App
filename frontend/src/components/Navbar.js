@@ -1,7 +1,7 @@
-// src/components/Navbar.js
 import React from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import "../App.css"; // ou ton fichier css
 
 const NavigationBar = ({ token, setToken }) => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const NavigationBar = ({ token, setToken }) => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar className="custom-navbar" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">Leoni Factory</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
@@ -22,7 +22,7 @@ const NavigationBar = ({ token, setToken }) => {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Accueil</Nav.Link>
             {token && <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>}
-             <Nav.Link as={Link} to="/add-anomalie">Ajouter Anomalie</Nav.Link>
+            <Nav.Link as={Link} to="/add-anomalie">Ajouter Anomalie</Nav.Link>
             {token && <Nav.Link as={Link} to="/techniciens">Gestion Techniciens</Nav.Link>}
           </Nav>
           <Nav>
