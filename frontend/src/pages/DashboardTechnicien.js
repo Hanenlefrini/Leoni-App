@@ -19,7 +19,7 @@ const DashboardTechnicien = () => {
           return;
         }
 
-        const res = await axios.get(`http://localhost:3000/api/anomalies?technicienId=${technicienId}`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/anomalies?technicienId=${technicienId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -44,7 +44,7 @@ const DashboardTechnicien = () => {
 
     try {
       await axios.put(
-        `http://localhost:3000/api/anomalies/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/anomalies/${id}`,
         {
           status: newStatus,
           dateFermeture:

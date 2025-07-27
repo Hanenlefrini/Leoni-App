@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import leoniImg from "./assets/leoniImg.png"; // adapte le chemin
 
@@ -29,9 +30,10 @@ function Home() {
         >
           <h1>LEONI Tunisia — Suivi des anomalies</h1>
           <p>Production & Qualité – Suivi en temps réel</p>
-          <Button href="/login" variant="light" size="lg" className="mt-3">
-            Se connecter
-          </Button>
+<Button as={Link} to="/login" variant="light" size="lg" className="mt-3">
+  Se connecter
+</Button>
+
         </div>
       </div>
 

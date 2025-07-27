@@ -23,7 +23,7 @@ function AddAnomalie() {
     setError("");
 
     try {
-      await axios.post("http://localhost:3000/api/anomalies", formData);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/anomalies`, formData);
       setMessage("Anomalie ajoutée avec succès.");
       setFormData({ matricule: "", description: "", ligne: "", gravite: "" });
     } catch (err) {

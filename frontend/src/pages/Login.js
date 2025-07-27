@@ -25,7 +25,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post("http://localhost:3000/api/auth/login", formRespo);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, formRespo);
       localStorage.setItem("token", res.data.token);
       onLogin(res.data.token);
       navigate("/dashboard");
@@ -38,10 +38,10 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     setError("");
     try {
-      const resInfo = await axios.post("http://localhost:3000/api/techniciens/login", formTech);
+      const resInfo = await axios.post(`${process.env.REACT_APP_API_URL}/api/techniciens/login`, formTech);
       localStorage.setItem("technicienId", resInfo.data.technicien.id);
 
-      const resToken = await axios.post("http://localhost:3000/api/auth/loginTechnicien", formTech);
+      const resToken = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/loginTechnicien`, formTech);
       localStorage.setItem("token", resToken.data.token);
       onLogin(resToken.data.token);
       navigate("/dashboard-technicien");
