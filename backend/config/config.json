@@ -3,21 +3,21 @@
     "username": "appuser",
     "password": "apppassword",
     "database": "anomalie_db",
-    "host": "db",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "appuser",
     "password": "apppassword",
     "database": "anomalie_db",
-    "host": "db",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "appuser",
     "password": "apppassword",
     "database": "anomalie_db",
-    "host": "db",
+    "host": "localhost",
     "dialect": "mysql"
   }
 }
