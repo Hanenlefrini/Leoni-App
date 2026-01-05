@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "appuser",
-    "password": "apppassword",
-    "database": "anomalie_db",
-    "host": "localhost",
+    "username": "root",
+    "password": "root",
+    "database": "leoni_db",
+    "host": "mysql",
     "dialect": "mysql"
   },
   "test": {
-    "username": "appuser",
-    "password": "apppassword",
-    "database": "anomalie_db",
-    "host": "localhost",
+    "username": "root",
+    "password": "root",
+    "database": "leoni_db",
+    "host": "mysql",
     "dialect": "mysql"
   },
   "production": {
-    "username": "appuser",
-    "password": "apppassword",
-    "database": "anomalie_db",
-    "host": "localhost",
+    "username": "root",
+    "password": "root",
+    "database": "leoni_db",
+    "host": "mysql",
     "dialect": "mysql"
   }
 }
