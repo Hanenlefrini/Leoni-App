@@ -19,7 +19,7 @@ jobs:
         username: azureuser
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd leoni-app
+          cd Leoni-App
           git pull origin main
           docker compose down
           docker compose up -d --build
