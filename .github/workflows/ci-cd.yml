@@ -1,7 +1,25 @@
-name: CI/CD Pipeline
+name: CI/CD Leoni App
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy on Azure VM
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.VM_IP }}
+        username: azureuser
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd leoni-app
+          git pull origin main
+          docker compose down
+          docker compose up -d --build
