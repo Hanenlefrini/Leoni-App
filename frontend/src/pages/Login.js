@@ -62,7 +62,7 @@ const Login = ({ onLogin }) => {
             setError("");
           }}
         >
-          Responsable
+          Hanensable
         </button>
         <button
           className={role === "technicien" ? "active" : ""}
