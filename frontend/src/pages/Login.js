@@ -97,7 +97,7 @@ const Login = ({ onLogin }) => {
             onChange={handleChangeRespo}
             required
           />
-          <button type="submit" className="btn-submit">SiwarA</button>
+          <button type="submit" className="btn-submit">Se connecter</button>
         </form>
       )}
 
