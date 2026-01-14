@@ -62,7 +62,7 @@ const Login = ({ onLogin }) => {
             setError("");
           }}
         >
-          Hanensable
+          Responsable
         </button>
         <button
           className={role === "technicien" ? "active" : ""}
@@ -97,7 +97,7 @@ const Login = ({ onLogin }) => {
             onChange={handleChangeRespo}
             required
           />
-          <button type="submit" className="btn-submit">Se connecter</button>
+          <button type="submit" className="btn-submit">Siwar</button>
         </form>
       )}
 
